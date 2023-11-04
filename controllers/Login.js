@@ -2,6 +2,8 @@ import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import client from '../redis.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const CheckUser = async (email)=>{
     try{
