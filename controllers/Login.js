@@ -34,7 +34,11 @@ const AuthenticateUser=async(email,password)=>{
             }
             // await client.connect();
             await client.set(`key-${email}`,JSON.stringify(response))
-            await User.findOneAndUpdate({email:userCheck.email},{$set:{token:token}},{new:true});
+            const updatedUser = await User.findOneAndUpdate({email:userCheck.email},{$set:{token:token}},{new:true});
+            if (!updatedUser) {
+          // where the user was not found or the update failed.
+          return 'User not found or token update failed';
+           }
             return response;
         }
         return 'Invalid Username or Password';
