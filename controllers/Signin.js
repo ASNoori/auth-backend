@@ -18,7 +18,8 @@ async function InsertVerifyUser(name,email,password){
            password:hashedPassword,
            token:token
        })
-       const activationLink = `http://localhost:4000/signin/${token}`
+      //  const activationLink = `http://localhost:4000/signin/${token}`
+      const activationLink = `https://auth-be-1n5q.onrender.com/signin/${token}`
        const content = `<h4>Hi there,</h4>
        <h5>Welcome to the app</h5>
        <p>Thankyou for signin</p>
