@@ -4,8 +4,8 @@ import { AuthenticateUser } from "../controllers/Login.js";
 const router = express.Router();
 
 router.post('/',async(req,res)=>{
-try{
 const{email,password}=await req.body;
+try{
 const loginCredential = await AuthenticateUser(email,password);
 console.log(loginCredential);
 if(loginCredential==='Invalid Username or Password'){
